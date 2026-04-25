@@ -65,7 +65,7 @@ public class AphineScrambler {
         }
         a=alpha;
         scan.nextLine();
-        reverse_a = calculateReverseAlpha(a, 26);
+        reverse_a = ((calculateReverseAlpha(a, 26) % 26) + 26) % 26;
     }
 
     public void setBeta(int beta) {
@@ -89,7 +89,7 @@ public class AphineScrambler {
             char c = str.charAt(i);
             int idx = c - 'a';
             int let = (((idx - b) % 26) + 26) % 26;
-            int let2 = (let * reverse_a) % 26;
+            int let2 = (((let * reverse_a) % 26) + 26) % 26;
             char res = (char) (let2 + 'a');
             System.out.print(res);
         }

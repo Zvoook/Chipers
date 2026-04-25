@@ -17,11 +17,11 @@ public class AphineReccurentScrambler extends AphineScrambler  {
         }
         if (num==1){
             a1=alpha;
-            reverse_a1 = calculateReverseAlpha(a1, 26);
+            reverse_a1 = ((calculateReverseAlpha(a1, 26) % 26) + 26) % 26;
         }
         else{
             a2=alpha;
-            reverse_a2 = calculateReverseAlpha(a2, 26);
+            reverse_a2 = ((calculateReverseAlpha(a2, 26) % 26) + 26) % 26;
         }
         scan.nextLine();
     }
@@ -93,7 +93,7 @@ public class AphineReccurentScrambler extends AphineScrambler  {
             char c = str.charAt(i);
             int idx = c - 'a';
             int let = (((idx - b) % 26) + 26) % 26;
-            int let2 = (let * reverse_a) % 26;
+            int let2 = (((let * reverse_a) % 26) + 26) % 26;
             char res = (char) (let2 + 'a');
             System.out.print(res);
         }
